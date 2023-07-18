@@ -3,8 +3,7 @@ import { refs } from './refs';
 export default function renderGallery(images) {
   function generateMarkup({
     id,
-    largeImageURL,
-    webformatURL,
+    imageURL,
     tags,
     likes,
     views,
@@ -12,9 +11,8 @@ export default function renderGallery(images) {
     downloads,
   }) {
     return `
-      <a class="gallery__link" href="${largeImageURL}">
         <div class="gallery-item" id="${id}">
-          <img class="gallery-item__img" src="${webformatURL}" alt="${tags}" loading="lazy" />
+          <img class="gallery-item__img" src="${imageURL}" alt="${tags}" loading="lazy" />
           <div class="info">
             <p class="info-item"><b>Likes &nbsp;</b>${likes}</p>
             <p class="info-item"><b>Views &nbsp;</b>${views}</p>
@@ -22,7 +20,6 @@ export default function renderGallery(images) {
             <p class="info-item"><b>Downloads &nbsp;</b>${downloads}</p>
           </div>
         </div>
-      </a>
     `;
   }
 
